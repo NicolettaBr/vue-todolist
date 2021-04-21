@@ -19,15 +19,15 @@
             <div class="logo">
 
                 <img src="img/logo.png" alt="logo">
-                
+
             </div>
             <!--fine logo-->
 
             <!--input section-->
             <section class="input-section">
 
-                <input type="text" class="input-text" placeholder="Nuovo ToDo">
-                <button class="btn">Aggiungi</button>
+                <input v-model="newTodo" type="text" class="input-text" placeholder="Nuovo ToDo">
+                <button @click="addNewTodo" class="btn">Aggiungi</button>
 
             </section>
             <!--fine input section-->
@@ -37,9 +37,11 @@
 
                 <ul class="todo-list">
 
-                    <li>
-                        Fare la spesa
-                        <span class="delete">
+                    <li v-for="(todo,index) in todoList">
+                        {{todo}}
+                        
+                        
+                        <span @click="removeTodo()" class="delete">
                             <i class="fas fa-times"></i>
                         </span>
                     </li>
